@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { Modal } from "@/components/modal";
+import { AuthModal } from "@/components/auth-modal";
+import { UploadModal } from "@/components/upload-modal";
 
 export const ModalProvider = () => {
   const [mounted, setMounted] = useState(false);
@@ -17,14 +18,8 @@ export const ModalProvider = () => {
 
   return (
     <>
-        <Modal 
-            isOpen={false} 
-            title="Test Modal" 
-            description="test" 
-            onChange={() => {}}
-        >
-            Modal Children
-        </Modal>
+      <AuthModal />
+      <UploadModal />
     </>
   )
 }

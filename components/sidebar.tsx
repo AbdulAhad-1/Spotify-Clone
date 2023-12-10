@@ -5,17 +5,18 @@ import { useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 
-import { IRoute } from "@/types";
+import { IRoute, ISong } from "@/types";
 
 import { Box } from "./box";
 import { Library } from "./library";
 import { SidebarItem } from "./sidebar-item";
 
 interface ISidebarProps {
+    songs: ISong[]
     children: React.ReactNode
 }
 
-export const Sidebar: React.FC<ISidebarProps> = ({children}) => {
+export const Sidebar: React.FC<ISidebarProps> = ({songs, children}) => {
   const pathname = usePathname();
   const routes = useMemo<IRoute[]>(() => [
     {
@@ -40,7 +41,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({children}) => {
                     {routes.map((item) => <SidebarItem key={item.label} {...item} />)}
                 </div>
             </Box>
-            <Box className="overflow-y-auto h-full"><Library /></Box>
+            <Box className="overflow-y-auto h-full"><Library songs={songs} /></Box>
         </div>
         <main className="h-full py-2 overflow-y-auto flex-1">{children}</main>
     </div>

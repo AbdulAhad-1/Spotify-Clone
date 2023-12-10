@@ -60,3 +60,18 @@ export interface ISubscription {
     trial_end?: string,
     prices?: IPrice
 }
+
+export interface IModal {
+    isOpen: boolean;
+    open: () => void;
+    close: () => void;
+}
+
+export interface ISong {
+    id: string,
+    user_id: string,
+    title: string,
+    author: string,
+    song_path: string,
+    image_path: string
+}
